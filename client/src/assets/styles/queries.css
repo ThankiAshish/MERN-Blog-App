@@ -1,0 +1,34 @@
+@media screen and (min-width: 768px) {
+    .article {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        height: 200px;
+    }
+
+    .article .article-image {
+        width: 28%;
+    }
+
+    .article .article-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        aspect-ratio: 16 / 9;
+    }
+
+    .article .article-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 70%;
+        height: 100%;
+    }
+
+    .article .article-text .article-title {
+        padding-block: 0;
+    }
+}
+
