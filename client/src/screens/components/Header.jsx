@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header>
@@ -5,14 +7,14 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <a href="/" className="btn">
+            <Link to="/login" className="btn">
               Login
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/" className="btn btn-outline">
+            <Link to="/register" className="btn btn-outline">
               Register
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
