@@ -1,7 +1,13 @@
 @media screen and (min-width: 768px) {
-    .article {
+    header {
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
+    }
+
+    .article {
+        flex-direction: row;
+        align-items: flex-start;
         justify-content: space-between;
         padding: 0;
         height: 200px;
@@ -9,13 +15,7 @@
 
     .article .article-image {
         width: 28%;
-    }
-
-    .article .article-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 19 / 6;
     }
 
     .article .article-text {
@@ -23,12 +23,16 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        width: 70%;
         height: 100%;
+        width: 70%;
     }
 
     .article .article-text .article-title {
         padding-block: 0;
+    }
+
+    .auth-section form {
+        width: 50%;
     }
 }
 

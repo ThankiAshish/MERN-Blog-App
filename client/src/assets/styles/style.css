@@ -24,6 +24,7 @@
     text-transform: uppercase;
     border-radius: 3px;
     background: var(--primary);
+    border: 1px solid transparent;
     color: var(--background);
 }
 
@@ -31,11 +32,30 @@
     border: 1px solid var(--primary);
     background: transparent;
     color: var(--primary);
+    transition: background ease-in-out .3s;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: var(--text);
+    border: 1px solid transparent;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 1rem 1.5rem;
 }
 
 .container {
     width: 80%;
     margin: 0 auto;
+}
+
+.link {
+    color: var(--primary);
+    text-decoration: underline;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -49,6 +69,25 @@ a {
 
 ul {
     list-style: none;
+}
+
+.input-field {
+    width: 100%;
+    border: 1px solid var(--text-transparent);
+    font-family: "Roboto", sans-serif;
+    border-radius: 4px;
+    background: transparent;
+    padding: 1rem 1.5rem;
+    outline: 0;
+    color: var(--text);
+}
+
+.input-field:focus {
+    border: 1px solid var(--text);
+}
+
+.input-field:hover {
+    border: 1px solid var(--primary);
 }
 
 body {
@@ -88,7 +127,6 @@ header nav ul {
 
 .article img {
     width: 100%;
-    max-width: 400px;
     object-fit: cover;
     aspect-ratio: 16 / 9;
 }
@@ -113,4 +151,33 @@ header nav ul {
     font-family: "Roboto", sans-serif;
     font-weight: 300;
     text-align: justify3;
+}
+
+/* Login Page */
+.auth-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-section form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.auth-section form h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.auth-section form p {
+    font-weight: 'Open Sans', sans-serif;
+    font-weight: 300;
+    color: var(--text-transparent);
 }
