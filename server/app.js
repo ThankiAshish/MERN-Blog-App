@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
 app.use("/api/auth", require("./routes/authRoute"));
-app.use("/articles", require("./routes/articleRoute"));
+app.use("/", require("./routes/articleRoute"));
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
