@@ -25,7 +25,7 @@
     border-radius: 3px;
     background: var(--primary);
     border: 1px solid transparent;
-    color: var(--background);
+    color: var(--text);
 }
 
 .btn-outline {
@@ -117,40 +117,33 @@ header nav ul {
 
 /* Article */
 .article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-block: 2rem;
-    margin-block: .5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .5rem;
+    margin-bottom: 10px;
 }
 
 .article img {
-    width: 100%;
+    max-width: 100%;
     object-fit: cover;
     aspect-ratio: 16 / 9;
 }
 
-.article-text .article-title {
-    padding-block: .5rem;
-}
-
-.article .article-text .article-title h3 {
+.article .article-text h3 {
     font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.article .article-text .article-title .article-date {
+.article .article-text .article-date {
     font-size: .8rem;
     color: var(--text-transparent);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
 }
 
-.article .article-text .article-content p {
-    font-size: 1.2rem;
-    font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    text-align: justify3;
+.article .article-text .article-summary {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text);
+    padding-block: 10px;
 }
 
 /* Login Page */

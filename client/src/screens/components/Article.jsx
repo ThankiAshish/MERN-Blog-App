@@ -14,7 +14,7 @@ const Article = () => {
             Date
           </p>
         </div>
-        <div className="article-content">
+        <div className="article-summary">
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem
             odit quo quasi doloremque. Non ratione quo accusamus architecto
