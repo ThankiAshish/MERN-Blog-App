@@ -13,6 +13,48 @@
     --text: #E0F2E9;
     --text-transparent: #E0F2E9A0;
     --primary: #826AED;
+    --toastify-color-dark: #232C33;
+    --toastify-color-light: #E0F2E9;
+    --toastify-color-info: #826AED;
+    --toastify-color-success: #00B74A;
+    --toastify-color-warning: #FFA900;
+    --toastify-color-error: #F93154;
+    --toastify-color-progress-info: linear-gradient(to right, #232C33, #826AED);
+    --toastify-color-progress-success: linear-gradient(to right, #232C33, #00B74A);
+    --toastify-color-progress-warning: linear-gradient(to right, #232C33, #FFA900);
+    --toastify-color-progress-error: linear-gradient(to right, #232C33, #F93154);
+    --toastify-color-progress-default: linear-gradient(to right, #232C33, #E0F2E9);
+    --toastify-color-progress-dark: linear-gradient(to right, #232C33, #E0F2E9);
+    --toastify-color-progress-light: linear-gradient(to right, #232C33, #E0F2E9);
+    --toastify-color-icon-default: #E0F2E9;
+    --toastify-color-icon-dark: #232C33;
+    --toastify-color-icon-light: #E0F2E9;
+    --toastify-color-icon-info: #826AED;
+    --toastify-color-icon-success: #00B74A;
+    --toastify-color-icon-warning: #FFA900;
+    --toastify-color-icon-error: #F93154;
+    --toastify-color-icon-progress-default: #E0F2E9;
+    --toastify-color-icon-progress-dark: #232C33;
+    --toastify-color-icon-progress-light: #E0F2E9;
+    --toastify-color-icon-progress-info: #826AED;
+    --toastify-color-icon-progress-success: #00B74A;
+    --toastify-color-icon-progress-warning: #FFA900;
+    --toastify-color-icon-progress-error: #F93154;
+    --toastify-color-background: #232C33;
+    --toastify-color-progress-bar: #E0F2E9;
+    --toastify-timing: 5000ms;
+    --toastify-font-family: 'Roboto', sans-serif;
+    --toastify-font-size: 1rem;
+    --toastify-font-weight: 400;
+    --toastify-line-height: 1.5;
+    --toastify-letter-spacing: 0.01rem;
+    --toastify-max-width: 800px;
+    --toastify-margin: 0.5rem;
+    --toastify-padding: 1rem;
+    --toastify-border-radius: 4px;
+    --toastify-box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1);
+    --toastify-z-index: 9999;
+    
 }
 
 .btn {
