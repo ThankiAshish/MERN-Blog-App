@@ -1,15 +1,73 @@
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+
+    try {
+      const response = await fetch(`api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log(response);
+
+      if (response.status === 200) {
+        toast.success("User created successfully");
+
+        setFormData({
+          username: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
+
+        navigate("/login");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
   return (
     <section className="auth-section">
-      <form>
+      <form onSubmit={handleSubmit}>
         <h1>Register</h1>
         <input
           type="text"
           name="username"
           id="username"
           placeholder="Enter Username"
+          value={formData.username}
+          onChange={handleChange}
           className="input-field"
         />
         <input
@@ -17,6 +75,8 @@ const Register = () => {
           name="email"
           id="email"
           placeholder="Enter Email Address"
+          value={formData.email}
+          onChange={handleChange}
           className="input-field"
         />
         <input
@@ -24,6 +84,17 @@ const Register = () => {
           name="password"
           id="password"
           placeholder="Enter Password"
+          value={formData.password}
+          onChange={handleChange}
+          className="input-field"
+        />
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          placeholder="Confirm Your Password"
+          value={formData.confirmPassword}
+          onChange={handleChange}
           className="input-field"
         />
         <button type="submit" className="btn btn-full">

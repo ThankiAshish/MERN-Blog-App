@@ -42,7 +42,7 @@ const register = async (req, res) => {
 
     const savedUser = await newUser.save();
 
-    res.json(savedUser);
+    res.status(200).json(savedUser);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -67,6 +67,11 @@ const login = async (req, res) => {
     if (!isMatch) return res.status(400).json({ msg: "Invalid credentials." });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
 
     res.json({
       token,
