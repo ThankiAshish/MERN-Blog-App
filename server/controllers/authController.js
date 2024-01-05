@@ -69,7 +69,6 @@ const login = async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
     res.cookie("token", token, {
-      httpOnly: true,
       secure: process.env.NODE_ENV === "production",
     });
 
@@ -87,7 +86,7 @@ const login = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.cookie("token", "", { httpOnly: true, expires: new Date(0) }).send();
+  res.cookie("token", "", { expires: new Date(0) }).send();
 };
 
 module.exports = { register, login, logout };

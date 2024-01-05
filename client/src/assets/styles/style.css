@@ -68,6 +68,7 @@
     background: var(--primary);
     border: 1px solid transparent;
     color: var(--text);
+    cursor: pointer;
 }
 
 .btn-outline {

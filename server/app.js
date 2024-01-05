@@ -18,14 +18,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("uploads"));
 
-app.use("/", (req, res, next) => {
-  const token = req.cookies.token;
-  if (token) {
-    const user = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = user;
-  }
-  next();
-});
 app.use("/api/auth", require("./routes/authRoute"));
 app.use("/api", require("./routes/articleRoute"));
 
