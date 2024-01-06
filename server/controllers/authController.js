@@ -8,19 +8,23 @@ const register = async (req, res) => {
     const { username, email, password, confirmPassword } = req.body;
 
     if (!username || !email || !password || !confirmPassword) {
-      return res.status(400).json({ msg: "Not all fields have been entered." });
+      return res
+        .status(400)
+        .json({ message: "Not all fields have been entered." });
     }
 
     if (password.length < 8) {
       return res
         .status(400)
-        .json({ msg: "The password needs to be at least 8 characters long." });
+        .json({
+          message: "The password needs to be at least 8 characters long.",
+        });
     }
 
     if (password !== confirmPassword) {
       return res
         .status(400)
-        .json({ msg: "Enter the same password twice for verification." });
+        .json({ message: "Enter the same password twice for verification." });
     }
 
     const existingUser = await User.findOne({ email: email });
@@ -28,7 +32,7 @@ const register = async (req, res) => {
     if (existingUser) {
       return res
         .status(400)
-        .json({ msg: "An account with this email already exists." });
+        .json({ message: "An account with this email already exists." });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -53,18 +57,21 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password)
-      return res.status(400).json({ msg: "Not all fields have been entered." });
+      return res
+        .status(400)
+        .json({ message: "Not all fields have been entered." });
 
     const user = await User.findOne({ email: email });
 
     if (!user)
       return res
         .status(400)
-        .json({ msg: "No account with this email has been registered." });
+        .json({ message: "No account with this email has been registered." });
 
     const isMatch = bcrypt.compare(password, user.password);
 
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials." });
+    if (!isMatch)
+      return res.status(400).json({ message: "Invalid credentials." });
 
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
