@@ -1,10 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+import { UserState } from "../../context/UserContext";
+
 import { isAuth } from "../../helpers/auth";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const { user } = UserState();
+
+  console.log(user);
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -31,6 +37,9 @@ const Header = () => {
         <ul>
           {isAuth() ? (
             <>
+              <li>
+                <Link to="/create-article">Create Article</Link>
+              </li>
               <li>
                 <button className="btn btn-logout" onClick={handleLogout}>
                   Logout

@@ -4,11 +4,15 @@ import { toast } from "react-toastify";
 
 import { isAuth, authenticate } from "../helpers/auth";
 
+import { UserState } from "../context/UserContext";
+
 const Login = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const { setUser } = UserState();
 
   const navigate = useNavigate();
 
@@ -40,6 +44,7 @@ const Login = () => {
             email: "",
             password: "",
           });
+          setUser(data.user);
           toast.success(`Welcome back ${data.user.username}`);
           navigate("/");
         });
