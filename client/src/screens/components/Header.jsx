@@ -1,16 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { UserState } from "../../context/UserContext";
-
 import { isAuth } from "../../helpers/auth";
 
 const Header = () => {
   const navigate = useNavigate();
-
-  const { user } = UserState();
-
-  console.log(user);
 
   const handleLogout = async (e) => {
     e.preventDefault();
