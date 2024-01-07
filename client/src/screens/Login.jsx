@@ -44,8 +44,8 @@ const Login = () => {
             email: "",
             password: "",
           });
-          setUser(data.user);
           toast.success(`Welcome back ${data.user.username}`);
+          setUser(data.user);
           navigate("/");
         });
       }
