@@ -112,7 +112,7 @@ const Article = () => {
             <div className="article-title">
               <h1>{article.title}</h1>
             </div>
-            {article.author._id === isAuth().id && (
+            {isAuth() && article.author._id === isAuth().id && (
               <div className="btn-container">
                 <Link
                   to={`/edit-article/${article._id}`}
