@@ -43,3 +43,8 @@ export const isAuth = () => {
     }
   }
 };
+
+export const logout = () => {
+  removeCookie("token");
+  removeLocalStorage("user");
+};
