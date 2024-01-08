@@ -6,8 +6,24 @@
     }
 
     .article {
-        grid-template-columns: .6fr 1.4fr;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 1rem;
+        height: 220px;
+    }
+
+    .article-image {
+        height: 100%;
+        width: 35%;
+    }
+
+    .article-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 100%;
+        width: 65%;
     }
 
     .auth-section form {

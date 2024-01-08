@@ -7,8 +7,15 @@ const Article = ({ id, cover, title, summary, author, date }) => {
     return new Date(date).toLocaleDateString(undefined, options);
   };
 
+  const formatTitle = (title) => {
+    const maxLength = 50;
+    return title.length > maxLength
+      ? title.substring(0, maxLength - 3) + "..."
+      : title;
+  };
+
   const formatSummary = (summary) => {
-    const maxLength = 210;
+    const maxLength = 100;
     return summary.length > maxLength
       ? summary.substring(0, maxLength - 3) + "..."
       : summary;
@@ -28,7 +35,7 @@ const Article = ({ id, cover, title, summary, author, date }) => {
         </div>
         <div className="article-text">
           <div className="article-title">
-            <h3>{title}</h3>
+            <h3>{formatTitle(title)}</h3>
             <p className="article-date">&#128336;&nbsp;{formatDate(date)}</p>
           </div>
           <div className="article-summary">{formatSummary(summary)}</div>
