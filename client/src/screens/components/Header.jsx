@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <header>
-      <h1>MERN Blog App</h1>
+      <h1>Scrive</h1>
       <nav>
         <ul>
           {isAuth() ? (
