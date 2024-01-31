@@ -7,6 +7,7 @@ import Login from "./screens/Login";
 import Register from "./screens/Register";
 import Reset from "./screens/Reset";
 import CreateArticle from "./screens/CreateArticle";
+import EditArticle from "./screens/EditArticle";
 import Article from "./screens/Article";
 
 import Layout from "./layouts/Layout";
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="/create-article" element={<CreateArticle />} />
+            <Route path="/edit-article/:id" element={<EditArticle />} />
             <Route path="/article/:id" element={<Article />} />
           </Route>
           <Route path="/login" element={<Login />} />

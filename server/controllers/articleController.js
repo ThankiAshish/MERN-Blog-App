@@ -81,6 +81,61 @@ const articleController = {
       }
     },
   ],
+
+  updateArticle: [
+    upload.single("cover"),
+    async (req, res) => {
+      try {
+        const { title, summary, content, author } = req.body;
+
+        if (!req.file) {
+          res.status(400).send("Please upload a PDF file");
+          return;
+        }
+
+        const fileName = req.file.originalname;
+        const filePath = req.file.path;
+
+        if (
+          !title ||
+          !summary ||
+          !content ||
+          !author ||
+          !fileName ||
+          !filePath
+        ) {
+          return res
+            .status(400)
+            .json({ message: "Not all fields have been entered." });
+        }
+
+        const updatedArticle = await Article.findByIdAndUpdate(
+          req.params.id,
+          {
+            title,
+            summary,
+            content,
+            cover: filePath,
+            author,
+          },
+          { new: true }
+        );
+
+        res.status(200).json(updatedArticle);
+      } catch (err) {
+        return res.status(500).json({ message: err.message });
+      }
+    },
+  ],
+
+  deleteArticle: async (req, res) => {
+    try {
+      const deletedArticle = await Article.findByIdAndDelete(req.params.id);
+      res.status(200).json({ message: "Deleted a article" });
+    } catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
+  },
 };
 
 module.exports = articleController;

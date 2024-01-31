@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { SyncLoader } from "react-spinners";
 
 import Article from "./components/ArticleModel";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getArticles = async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(`api/article`);
 
       if (response.status === 200) {
@@ -16,6 +19,8 @@ const Home = () => {
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -25,7 +30,11 @@ const Home = () => {
 
   return (
     <>
-      {articles.length > 0 ? (
+      {isLoading ? (
+        <div className="default-page">
+          <SyncLoader color="#826AED" />
+        </div>
+      ) : articles.length > 0 ? (
         articles.map((article) => (
           <Article
             key={article._id}

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-import { isAuth } from "../../helpers/auth";
+import { isAuth, logout } from "../../helpers/auth";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const Header = () => {
 
       if (response.status === 200) {
         toast.success("Logged out successfully");
-        localStorage.removeItem("token");
+        logout();
         navigate("/login");
       }
     } catch (error) {
@@ -27,12 +27,17 @@ const Header = () => {
   return (
     <header>
       <h1>Scrive</h1>
+      <Link to="/">
+        <h1>MERN Blog App</h1>
+      </Link>
       <nav>
         <ul>
           {isAuth() ? (
             <>
               <li>
-                <Link to="/create-article">Create Article</Link>
+                <Link to="/create-article" className="link">
+                  Create Article
+                </Link>
               </li>
               <li>
                 <button className="btn btn-logout" onClick={handleLogout}>
